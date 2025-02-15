@@ -29,10 +29,16 @@
             animation: heartbeat 1.5s infinite alternate;
             display: inline-block;
         }
-        img {
-            width: 250px;
-            height: auto;
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             margin-top: 20px;
+        }
+        .gif-container img {
+            width: 120px;
+            height: auto;
+            border-radius: 10px;
             animation: bounce 1.5s infinite;
         }
         .confetti {
@@ -43,7 +49,14 @@
             opacity: 0.7;
             animation: fall 3s linear infinite;
         }
-        
+        .love-text {
+            font-size: 1.5em;
+            color: #ff2e63;
+            margin-top: 15px;
+            font-weight: bold;
+            animation: fadeIn 2s ease-in-out;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -65,8 +78,13 @@
 <body>
 
     <div class="container">
-        <h1>I Knew It! <span class="heart">❤️</span> Love You Forever! My Cutie Chota Don</h1>
-        <img src="https://media.tenor.com/IHdlTRsmcS4AAAAi/love-cute.gif" alt="Love GIF">
+        <h1>I Knew It! <span class="heart">❤️</span> Love You Forever!</h1>
+        <div class="gif-container">
+            <img src="https://media.tenor.com/IHdlTRsmcS4AAAAi/love-cute.gif" alt="Love GIF">
+            <img src="https://media.tenor.com/y2JXkY1pXkwAAAAi/cat-love.gif" alt="Cat Love">
+            <img src="https://media.tenor.com/ztYZXzNwvXIAAAAi/cute-love.gif" alt="Cute Hearts">
+        </div>
+        <p class="love-text">My Love ❤️ Chota Don</p>
     </div>
 
     <script>
