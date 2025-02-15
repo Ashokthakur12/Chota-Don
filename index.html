@@ -2,34 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ask Her Out</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Confirmation</title>
     <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: #ffebf0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
         }
         .container {
             text-align: center;
+            position: relative;
         }
         h1 {
-            font-size: 2em;
-            color: #333;
+            font-size: 2.5em;
+            color: #ff4d6d;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .heart {
+            font-size: 3em;
+            animation: heartbeat 1.5s infinite alternate;
+            display: inline-block;
         }
         img {
-            max-width: 100%;
+            width: 250px;
             height: auto;
+            margin-top: 20px;
+            animation: bounce 1.5s infinite;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: red;
+            opacity: 0.7;
+            animation: fall 3s linear infinite;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes heartbeat {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes fall {
+            from { transform: translateY(-100vh); opacity: 1; }
+            to { transform: translateY(100vh); opacity: 0; }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>Hehehehe, I knew it! Love you a lot</h1>
-        <img src="https://tenor.com/view/mochi-cat-love-heart-gif-13519755" alt="Mochi Cat GIF">
+        <h1>I Knew It! <span class="heart">❤️</span> Love You Forever!</h1>
+        <img src="https://media.tenor.com/IHdlTRsmcS4AAAAi/love-cute.gif" alt="Love GIF">
     </div>
+
+    <script>
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(confetti);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+
+        setInterval(createConfetti, 200);
+    </script>
+
 </body>
 </html>
